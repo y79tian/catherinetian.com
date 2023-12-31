@@ -1,0 +1,157 @@
+{
+    "root": true,
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "plugin:react/recommended",
+      // "plugin:storybook/recommended",
+      "plugin:prettier/recommended",
+      "plugin:import/recommended",
+      "plugin:import/typescript"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "env": {
+      "browser": true,
+      "es6": true,
+      "jest": true
+    },
+    "settings": {
+      "react": {
+        "version": "18.2" // React version
+      },
+      "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
+      "import/parsers": {
+        "@typescript-eslint/parser": [".js", ".jsx", ".ts", ".tsx"]
+      },
+      "import/resolver": {
+        "typescript": {
+          "alwaysTryTypes": true // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+        }
+      }
+    },
+    "rules": {
+      "class-methods-use-this": "off",
+      "dot-notation": "off",
+      "no-mixed-operators": "off",
+      "no-plusplus": "off",
+      "no-console": "warn",
+      "no-shadow": "off",
+      "@typescript-eslint/no-shadow": "warn",
+      "no-else-return": [
+        "error",
+        {
+          "allowElseIf": false
+        }
+      ],
+      "no-lonely-if": "warn",
+      "no-throw-literal": "error",
+      "no-underscore-dangle": "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          "ignoreRestSiblings": true,
+          "args": "after-used"
+        }
+      ],
+      "object-shorthand": "warn",
+      "prefer-const": [
+        "error",
+        {
+          "destructuring": "all"
+        }
+      ],
+      "prefer-promise-reject-errors": "error",
+      "prettier/prettier": [
+        "warn",
+        {
+          "endOfLine": "auto"
+        }
+      ],
+      "import/prefer-default-export": "off",
+      "import/no-absolute-path": "error",
+      "import/no-extraneous-dependencies": "off",
+      "import/no-anonymous-default-export": "off",
+      "import/no-named-as-default-member": "off",
+      "import/no-unused-modules": [
+        "warn",
+        {
+          "unusedExports": true
+          // "ignoreExports": [
+          //   "src/shared/index.ts",
+          //   "src/setupTests.tsx"
+          //   "**/__mocks__/**"
+          // ]
+        }
+      ],
+      "import/no-useless-path-segments": [
+        "warn",
+        {
+          "noUselessIndex": true
+        }
+      ],
+      "sort-imports": [
+        "warn",
+        {
+          "ignoreCase": true,
+          "ignoreDeclarationSort": true
+        }
+      ],
+      "import/order": [
+        "warn",
+        {
+          "groups": ["builtin", "external", "parent", "sibling", "index"],
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": false
+          },
+          "newlines-between": "always"
+        }
+      ],
+      "jsx-quotes": ["warn", "prefer-single"],
+      "quotes": [
+        "warn",
+        "single",
+        {
+          "avoidEscape": true
+        }
+      ],
+      "react/display-name": "off",
+      "react/jsx-curly-brace-presence": [
+        "warn",
+        {
+          "props": "never",
+          "children": "never"
+        }
+      ],
+      "react/jsx-key": [
+        "warn",
+        {
+          "checkFragmentShorthand": false
+        }
+      ],
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
+      "spaced-comment": [
+        "warn",
+        "always",
+        {
+          "block": { "balanced": true }
+        }
+      ]
+    },
+    "overrides": [
+      {
+        "files": ["**/*.stories.*"],
+        "rules": {
+          "import/no-anonymous-default-export": "off",
+          "import/no-unused-modules": "off",
+          "no-console": "off"
+        }
+      }
+    ]
+  }
