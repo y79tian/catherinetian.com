@@ -26,6 +26,7 @@
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-webpack-plugin": "^4.0.1",
     "framer-motion": "^10.16.4",
+    "husky": "^8.0.3",
     "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -71,5 +72,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint:fix"
+    }
   }
 }
