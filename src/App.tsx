@@ -4,8 +4,10 @@ import { ThemeProvider } from 'styled-components';
 
 import { getTheme, GlobalStyles } from './theme';
 import Home from './views/home/home';
+import { useAppSelector } from './hooks';
 
 const App = () => {
+  const theme = useAppSelector((state) => state.theme.theme);
   const renderRoutes = () => (
     <BrowserRouter>
       <Routes>
@@ -16,7 +18,7 @@ const App = () => {
   return (
     <>
       <GlobalStyles />
-      <ThemeProvider theme={() => getTheme('light')}>
+      <ThemeProvider theme={() => getTheme(theme)}>
         {renderRoutes()}
       </ThemeProvider>
     </>
