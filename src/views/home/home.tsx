@@ -1,6 +1,7 @@
-import { Container } from './home.styles';
-import { useAppSelector, useAppDispatch } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { switchTheme } from '../../reducers/theme';
+
+import { Container } from './home.styles';
 const Home = () => {
   const theme = useAppSelector((state) => state.theme.theme);
   const dispatch = useAppDispatch();

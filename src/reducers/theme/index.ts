@@ -1,7 +1,10 @@
+/* eslint-disable import/no-unused-modules */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from '../store';
-import { ThemeMode, THEMES_MODE } from '../../theme';
 import { ThemeConsumer } from 'styled-components';
+
+import { ThemeMode, THEMES_MODE } from '../../theme';
+import type { RootState } from '../store';
 
 // Define a type for the slice state
 interface themeState {

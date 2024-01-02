@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unused-modules */
 const Musics = {} as const;
 
 const MusicsSrcs = [] as const;
