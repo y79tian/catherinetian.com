@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import { useAppSelector } from './hooks';
+import Navbar from './shared/navbar/navbar';
 import { getTheme, GlobalStyles } from './theme';
 import Home from './views/home/home';
 
@@ -19,6 +20,7 @@ const App = () => {
     <>
       <GlobalStyles />
       <ThemeProvider theme={() => getTheme(theme)}>
+        <Navbar />
         {renderRoutes()}
       </ThemeProvider>
     </>
