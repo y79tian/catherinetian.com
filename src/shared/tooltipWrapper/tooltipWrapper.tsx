@@ -21,6 +21,7 @@ type TooltipBaseProps = {
   offset?: number;
   delayShow?: number;
   delayHide?: number;
+  opacity?: number;
   hidden?: boolean;
   noArrow?: boolean;
   clickable?: boolean;
@@ -49,6 +50,7 @@ export const TooltipWrapper = ({
   offset = 10,
   delayShow = 300,
   delayHide = 300,
+  opacity = 0.9,
   hidden = false,
   noArrow = true,
   clickable = false,
@@ -73,6 +75,7 @@ export const TooltipWrapper = ({
         content={text}
         afterShow={afterShow}
         afterHide={afterHide}
+        opacity={opacity}
       >
         {component}
       </StyledTooltipWrapper>

@@ -85,3 +85,23 @@ export const Key = styled(Body1)<KeyProps>`
       padding: 0.15rem 0.4rem;
     `}
 `;
+
+type Subtitle1Props = {
+  $grey?: boolean;
+  green?: boolean;
+  red?: boolean;
+};
+
+export const Subtitle1 = styled.h6<Subtitle1Props>`
+  font-size: 1.225rem;
+  font-weight: 600;
+  line-height: 1.375rem;
+  margin: 0;
+
+  color: ${(props) => {
+    if (props.$grey) return props.theme.colors.textSecondary;
+    if (props.red) return props.theme.colors.redDefault;
+    if (props.green) return props.theme.colors.greenDefault;
+    return props.theme.colors.textPrimary;
+  }};
+`;

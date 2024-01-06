@@ -1,4 +1,7 @@
-const Files = {} as const;
+import resume from './files/resume.pdf';
+const Files = {
+  resume,
+} as const;
 
 export type ThemeFiles = typeof Files;
 

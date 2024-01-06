@@ -1,3 +1,8 @@
+// react-tooltip
+import 'react-tooltip/dist/react-tooltip.css';
+// react-pdf
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';

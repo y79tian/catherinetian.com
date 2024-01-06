@@ -5,6 +5,7 @@ import { switchTheme } from '../../reducers/theme';
 import { THEMES_MODE } from '../../theme';
 import { IconButton } from '../iconButton/iconButton';
 import { NavButton } from '../navButton/navButton';
+import { ResumeButton } from '../resumeButton/resumeButton';
 import { TooltipWrapper } from '../tooltipWrapper/tooltipWrapper';
 import { SimpleTooltip } from '../tooltipWrapper/tooltipWrapper.styles';
 import { Body1, Key } from '../typography/typography';
@@ -38,9 +39,8 @@ const Navbar = () => {
   };
 
   const renderPDFControl = () => {
-    return <IconButton icon='filePDF2' onClick={fakeFunc} />;
+    return <ResumeButton />;
   };
-
   const renderThemeControl = () => {
     const icon = mode === THEMES_MODE.light ? 'sun' : 'moon';
     const renderThemeTooltip = () => {
