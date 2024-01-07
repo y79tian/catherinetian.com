@@ -13,3 +13,7 @@ export const buttonTransformStyle = css`
     transform: scale(0.9);
   }
 `;
+
+export const backgroundColorTransitionStyle = css`
+  transition: background-color 1.5s ease-in-out;
+`;
