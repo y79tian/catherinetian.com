@@ -14,6 +14,10 @@ export const NavbarContainer = styled.nav`
   align-items: center;
   padding: 0 40px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: ${(props) => props.theme.zIndexes.navBar};
+  left: 0;
+  top: 0;
+  position: fixed;
   ${StyledButton} {
     margin: 0 1vw;
   }

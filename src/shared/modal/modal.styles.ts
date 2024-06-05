@@ -5,6 +5,7 @@ import { Subtitle1 } from '../typography/typography';
 
 export const OverlayContainer = styled.div`
   position: fixed;
+  z-index: ${(props) => props.theme.zIndexes.modal};
   top: 0;
   left: 0;
   right: 0;

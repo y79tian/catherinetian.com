@@ -8,14 +8,12 @@ const Home = () => {
   const theme = useAppSelector((state) => state.theme.theme);
   const dispatch = useAppDispatch();
   return (
-    <>
-      <Container>
-        <h1>Home page</h1>
-        <h2>current theme: {theme}</h2>
-      </Container>
+    <Container>
+      <h1>Home page</h1>
+      <h2>current theme: {theme}</h2>
       <Button onClick={() => dispatch(switchTheme())}>Change Theme</Button>
       <NavButton onClick={() => {}}>Nav</NavButton>
-    </>
+    </Container>
   );
 };
 
