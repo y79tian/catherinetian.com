@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
+import useKeyPress from '../../hooks/useKeyPress';
 import { switchTheme } from '../../reducers/theme';
 import { THEMES_MODE } from '../../theme';
 import Button from '../button/button';
@@ -30,6 +31,11 @@ const Navbar = () => {
   const [showHotkeyModal, setShowHotkeyModal] = useState(false);
   const mode = useAppSelector((state) => state.theme.theme);
   const dispatch = useAppDispatch();
+
+  const onKeyIDown = () => {
+    setShowHotkeyModal(!showHotkeyModal);
+  };
+  useKeyPress('i', onKeyIDown);
 
   const fakeFunc = () => {};
   const renderInfoControl = () => {
@@ -146,8 +152,8 @@ const Navbar = () => {
   };
   return (
     <>
-      {renderHotkeyModal()}
       <NavbarContainer>
+        {renderHotkeyModal()}
         {renderNavButtonGroup()}
         {renderIconGroup()}
       </NavbarContainer>
