@@ -8,6 +8,7 @@ import { BsInfoCircle } from 'react-icons/bs';
 import { FaGoogleDrive, FaNodeJs, FaRegUser } from 'react-icons/fa';
 import { GiMusicSpell } from 'react-icons/gi';
 import { IoIosArrowDown, IoIosArrowUp, IoIosPlay } from 'react-icons/io';
+import { IoDocumentTextOutline } from 'react-icons/io5';
 import { MdDownload, MdMusicNote, MdMusicOff, MdPause } from 'react-icons/md';
 import { PiFilePdf } from 'react-icons/pi';
 import {
@@ -111,6 +112,7 @@ const Icons = {
 
   // Google app icons
   googleDrive: FaGoogleDrive,
+  resume: IoDocumentTextOutline,
 } as const;
 
 export type ThemeIcons = typeof Icons;

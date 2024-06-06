@@ -105,3 +105,15 @@ export const Subtitle1 = styled.h6<Subtitle1Props>`
     return props.theme.colors.textPrimary;
   }};
 `;
+
+export const AppFooterBody = styled.p`
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.225rem;
+  color: ${(props) => props.theme.colors.whiteDefault};
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  border-radius: 2rem;
+  background-color: ${(props) => props.theme.colors.overlay};
+  user-select: none;
+`;
