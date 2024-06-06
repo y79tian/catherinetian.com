@@ -6,7 +6,7 @@ import GlobalStyles from './globalStyles';
 import Icons, { ThemeIcons } from './icons';
 import Images, { ThemeImages } from './images';
 import Links, { ThemeLinks } from './links';
-import { Musics, MusicsSrcs, ThemeMusics } from './musics';
+import { Musics, MusicsSrcs, ThemeMusics, ThemeMusicSrcs } from './musics';
 import Shadows, { ThemeShadows } from './shadows';
 import Videos, { ThemeVideos } from './videos';
 import ZIndexes, { ThemeZIndexes } from './zIndex';
@@ -36,6 +36,7 @@ type Theme = {
   icons: ThemeIcons;
   files: ThemeFiles;
   musics: ThemeMusics;
+  musicSrcs: ThemeMusicSrcs;
   links: ThemeLinks;
   zIndexes: ThemeZIndexes;
 };
@@ -53,6 +54,7 @@ const getTheme = (themeMode: ThemeMode): Theme => {
         icons: Icons,
         files: Files,
         musics: Musics,
+        musicSrcs: MusicsSrcs,
         links: Links,
         zIndexes: ZIndexes,
       };
@@ -68,6 +70,7 @@ const getTheme = (themeMode: ThemeMode): Theme => {
         icons: Icons,
         files: Files,
         musics: Musics,
+        musicSrcs: MusicsSrcs,
         links: Links,
         zIndexes: ZIndexes,
       };
@@ -83,6 +86,7 @@ const getTheme = (themeMode: ThemeMode): Theme => {
         icons: Icons,
         files: Files,
         musics: Musics,
+        musicSrcs: MusicsSrcs,
         links: Links,
         zIndexes: ZIndexes,
       };

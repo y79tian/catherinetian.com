@@ -9,13 +9,16 @@ import { ThemeProvider } from 'styled-components';
 
 import { useAppDispatch, useAppSelector } from './hooks';
 import useKeyPress from './hooks/useKeyPress';
+import { switchMusic, toggleMusic } from './reducers/music';
 import { switchTheme } from './reducers/theme';
+import { MusicPlayer } from './shared/musicPlayer/musicPlayer';
 import Navbar from './shared/navbar/navbar';
 import { getTheme, GlobalStyles } from './theme';
 import Home from './views/home/home';
 
 const App = () => {
   const theme = useAppSelector((state) => state.theme.theme);
+  const { isPlaying } = useAppSelector((state) => state.music);
   const dispatch = useAppDispatch();
   const renderRoutes = () => (
     <BrowserRouter>
@@ -30,41 +33,33 @@ const App = () => {
   useKeyPress('t', onKeyTDown);
 
   // TODO
-  const onArrowRightDown = () => {
-    console.log('next view');
-  };
+  const onArrowRightDown = () => {};
   useKeyPress('ArrowRight', onArrowRightDown);
 
   // TODO
-  const onArrowLeftDown = () => {
-    console.log('prev view');
-  };
+  const onArrowLeftDown = () => {};
   useKeyPress('ArrowLeft', onArrowLeftDown);
 
   // TODO
-  const onArrowUpDown = () => {
-    console.log('upup');
-  };
+  const onArrowUpDown = () => {};
   useKeyPress('ArrowUp', onArrowUpDown);
 
   // TODO
-  const onArrowDownDown = () => {
-    console.log('down');
-  };
+  const onArrowDownDown = () => {};
   useKeyPress('ArrowDown', onArrowDownDown);
 
-  // TODO
   const onTabDown = () => {
-    console.log('Tab down');
+    if (isPlaying) dispatch(switchMusic());
   };
   useKeyPress('Tab', onTabDown);
-  // TODO
+
   const onSpaceDown = () => {
-    console.log('space');
+    dispatch(toggleMusic());
   };
   useKeyPress(' ', onSpaceDown);
   return (
     <>
+      <MusicPlayer />
       <GlobalStyles />
       <ThemeProvider theme={() => getTheme(theme)}>
         <Navbar />

@@ -4,3 +4,4 @@ declare module '*.pdf' {
   // eslint-disable-next-line import/no-unused-modules
   export default content;
 }
+declare module '*.mp3';

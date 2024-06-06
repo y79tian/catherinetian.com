@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import musicReducer from './music';
 import themeReducer from './theme';
 
 const store = configureStore({
   reducer: {
     theme: themeReducer,
+    music: musicReducer,
   },
 });
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import useKeyPress from '../../hooks/useKeyPress';
+import { switchMusic, toggleMusic } from '../../reducers/music';
 import { switchTheme } from '../../reducers/theme';
 import { THEMES_MODE } from '../../theme';
 import Button from '../button/button';
@@ -30,6 +31,9 @@ import {
 const Navbar = () => {
   const [showHotkeyModal, setShowHotkeyModal] = useState(false);
   const mode = useAppSelector((state) => state.theme.theme);
+  const { isPlaying, musicIndex, playlist } = useAppSelector(
+    (state) => state.music,
+  );
   const dispatch = useAppDispatch();
 
   const onKeyIDown = () => {
@@ -82,17 +86,41 @@ const Navbar = () => {
       return (
         <SimpleTooltip>
           <Key $mini>Space</Key>
-          <Body1 $noSpacing>Play Background Music</Body1>
+          <Body1 $noSpacing>{`${
+            isPlaying ? 'Pause' : 'Play'
+          } Background Music`}</Body1>
+        </SimpleTooltip>
+      );
+    };
+    const getNextMusic = () => {
+      const nextInd = (musicIndex + 1) % playlist.length;
+      return playlist[nextInd].name;
+    };
+    const nextMusicTooltip = () => {
+      return (
+        <SimpleTooltip>
+          <Key $mini>Tab</Key>
+          <Body1 $noSpacing>{`Next: ${getNextMusic()}`}</Body1>
         </SimpleTooltip>
       );
     };
     return (
-      <TooltipWrapper component={playMusicTooltip()}>
-        <NavBarMusicControlContainer>
-          <IconButton icon='music' onClick={fakeFunc} />
-          <IconButton icon='next' disabled onClick={fakeFunc} />
-        </NavBarMusicControlContainer>
-      </TooltipWrapper>
+      <NavBarMusicControlContainer>
+        <TooltipWrapper component={playMusicTooltip()}>
+          <IconButton
+            icon={isPlaying ? 'musicPlaying' : 'music'}
+            onClick={() => dispatch(toggleMusic())}
+            spinning={isPlaying}
+          />
+        </TooltipWrapper>
+        <TooltipWrapper hidden={!isPlaying} component={nextMusicTooltip()}>
+          <IconButton
+            icon='next'
+            disabled={!isPlaying}
+            onClick={() => dispatch(switchMusic())}
+          />
+        </TooltipWrapper>
+      </NavBarMusicControlContainer>
     );
   };
 
@@ -150,6 +178,7 @@ const Navbar = () => {
       </NavBarIconGroupContainer>
     );
   };
+
   return (
     <>
       <NavbarContainer>
