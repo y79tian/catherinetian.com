@@ -8,6 +8,7 @@ type IconButtonProps = {
   iconColor?: string;
   disabled?: boolean;
   animating?: boolean;
+  spinning?: boolean;
   onClick: () => void;
 };
 
@@ -17,6 +18,7 @@ export const IconButton = ({
   iconColor = '',
   disabled = false,
   animating = false,
+  spinning = false,
   onClick,
 }: IconButtonProps) => {
   const theme = useTheme();
@@ -33,6 +35,7 @@ export const IconButton = ({
   return (
     <StyledIconButton
       $animating={animating}
+      $spinning={spinning}
       $disabled={disabled}
       onClick={onClick}
     >
