@@ -8,7 +8,7 @@ import Images, { ThemeImages } from './images';
 import Links, { ThemeLinks } from './links';
 import { Musics, MusicsSrcs, ThemeMusics, ThemeMusicSrcs } from './musics';
 import Shadows, { ThemeShadows } from './shadows';
-import Videos, { ThemeVideos } from './videos';
+import { DarkVideo, LightVideo, ThemeVideos } from './videos';
 import ZIndexes, { ThemeZIndexes } from './zIndex';
 
 export const THEMES_MODE = {
@@ -50,7 +50,7 @@ const getTheme = (themeMode: ThemeMode): Theme => {
         shadows: Shadows,
         fonts: Fonts,
         images: Images,
-        videos: Videos,
+        videos: LightVideo,
         icons: Icons,
         files: Files,
         musics: Musics,
@@ -66,7 +66,7 @@ const getTheme = (themeMode: ThemeMode): Theme => {
         shadows: Shadows,
         fonts: Fonts,
         images: Images,
-        videos: Videos,
+        videos: DarkVideo,
         icons: Icons,
         files: Files,
         musics: Musics,
@@ -82,7 +82,7 @@ const getTheme = (themeMode: ThemeMode): Theme => {
         shadows: Shadows,
         fonts: Fonts,
         images: Images,
-        videos: Videos,
+        videos: LightVideo,
         icons: Icons,
         files: Files,
         musics: Musics,

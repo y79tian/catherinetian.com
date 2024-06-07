@@ -1,4 +1,7 @@
-const Videos = {} as const;
-export type ThemeVideos = typeof Videos;
+import homeLightVideo from './videos/techLight.mp4';
+import homeDarkVideo from './videos/techdark.mp4';
 
-export default Videos;
+export const DarkVideo = { homeVideo: homeDarkVideo };
+export const LightVideo = { homeVideo: homeLightVideo };
+
+export type ThemeVideos = typeof DarkVideo;
