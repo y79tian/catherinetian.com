@@ -12,7 +12,6 @@ import useKeyPress from './hooks/useKeyPress';
 import { switchMusic, toggleMusic } from './reducers/music';
 import { switchTheme } from './reducers/theme';
 import { MusicPlayer } from './shared/musicPlayer/musicPlayer';
-import Navbar from './shared/navbar/navbar';
 import { getTheme, GlobalStyles } from './theme';
 import Home from './views/home/home';
 
@@ -62,7 +61,6 @@ const App = () => {
       <MusicPlayer />
       <GlobalStyles />
       <ThemeProvider theme={() => getTheme(theme)}>
-        <Navbar />
         {renderRoutes()}
       </ThemeProvider>
     </>

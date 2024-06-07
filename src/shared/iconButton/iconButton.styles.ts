@@ -6,6 +6,7 @@ type StyledIconButtonProps = {
   $animating: Boolean;
   $spinning: Boolean;
   $disabled: Boolean;
+  $needPadding: Boolean;
 };
 const scaleAnimation = keyframes`
   0%, 100% { transform: scale(1); }
@@ -19,7 +20,7 @@ const spinAnimation = keyframes`
 
 export const StyledIconButton = styled.button<StyledIconButtonProps>`
   margin: 0;
-  padding: 0 1rem;
+  padding: ${(props) => (props.$needPadding ? '0 1rem' : '0')};
   display: flex;
   justify-content: center;
   align-items: center;

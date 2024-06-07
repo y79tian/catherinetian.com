@@ -54,6 +54,13 @@ export const Body1 = styled.p<Body1Props>`
   }};
 `;
 
+export const BodyIconInfo = styled.p`
+  font-size: 1.0375rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  color: ${(props) => props.theme.colors.textIconInfo};
+`;
+
 type KeyProps = {
   $mini?: boolean;
 };
@@ -86,6 +93,15 @@ export const Key = styled(Body1)<KeyProps>`
     `}
 `;
 
+export const Title1 = styled.h1`
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 3.5rem;
+  margin: 0;
+
+  color: ${(props) => props.theme.colors.textPrimary};
+`;
+
 type Subtitle1Props = {
   $grey?: boolean;
   green?: boolean;
@@ -97,11 +113,22 @@ export const Subtitle1 = styled.h6<Subtitle1Props>`
   font-weight: 600;
   line-height: 1.375rem;
   margin: 0;
-
   color: ${(props) => {
     if (props.$grey) return props.theme.colors.textSecondary;
     if (props.red) return props.theme.colors.redDefault;
     if (props.green) return props.theme.colors.greenDefault;
     return props.theme.colors.textPrimary;
   }};
+`;
+
+export const AppFooterBody = styled.p`
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.225rem;
+  color: ${(props) => props.theme.colors.whiteDefault};
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  border-radius: 2rem;
+  background-color: ${(props) => props.theme.colors.overlay};
+  user-select: none;
 `;

@@ -10,9 +10,11 @@ export type ThemeColors = {
   elevatedBackgroundPrimary: string;
   elevatedBackgroundSecondary: string;
   elevatedBackgroundTertiary: string;
+  InfoIconBackgroundPrimary: string;
   textPrimary: string;
   textSecondary: string;
   textTertiary: string;
+  textIconInfo: string;
   printBed: string;
   printBedGridMajor: string;
   printBedGridMinor: string;
@@ -67,10 +69,14 @@ export const LightColors: ThemeColors = {
   elevatedBackgroundSecondary: '#F8F8F8', // when hovered, pressed, etc
   elevatedBackgroundTertiary: '#EFEFEF', // disabled
 
+  // InfoIcon: the social media icons like LinkedIn, Github
+  InfoIconBackgroundPrimary: '#7F7F7F',
+
   // use for text
   textPrimary: '#000000', // regular
   textSecondary: '#7F7F7F', // captions, subtitles
   textTertiary: '#A8A8A8', // disabled
+  textIconInfo: '#fbfbfb',
 
   // use for slice views
   printBed: '#EBEBF0', // print bed base
@@ -133,9 +139,13 @@ export const DarkColors: ThemeColors = {
   elevatedBackgroundSecondary: '#2F2F2F',
   elevatedBackgroundTertiary: '#323232',
 
+  // InfoIcon: the social media icons like LinkedIn, Github
+  InfoIconBackgroundPrimary: '#FFFFFF',
+
   textPrimary: '#E4E4E4',
   textSecondary: '#848484',
   textTertiary: '#4D4D4D',
+  textIconInfo: '#000000',
 
   printBed: '#343434',
   printBedGridMajor: '#cdcdd0',

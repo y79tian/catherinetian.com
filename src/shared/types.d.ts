@@ -5,3 +5,4 @@ declare module '*.pdf' {
   export default content;
 }
 declare module '*.mp3';
+declare module '*.mp4';

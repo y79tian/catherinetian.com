@@ -9,6 +9,7 @@ type IconButtonProps = {
   disabled?: boolean;
   animating?: boolean;
   spinning?: boolean;
+  needPadding?: boolean;
   onClick: () => void;
 };
 
@@ -19,6 +20,7 @@ export const IconButton = ({
   disabled = false,
   animating = false,
   spinning = false,
+  needPadding = false,
   onClick,
 }: IconButtonProps) => {
   const theme = useTheme();
@@ -37,6 +39,7 @@ export const IconButton = ({
       $animating={animating}
       $spinning={spinning}
       $disabled={disabled}
+      $needPadding={needPadding}
       onClick={onClick}
     >
       {renderIcon()}
