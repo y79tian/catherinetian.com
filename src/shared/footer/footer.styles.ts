@@ -9,6 +9,7 @@ export const FooterContainer = styled.div`
   align-items: center;
   margin: 2rem 0;
   gap: 1rem;
+  z-index: ${(props) => props.theme.zIndexes.view};
 `;
 
 export const SocialMediaWrapper = styled.div`

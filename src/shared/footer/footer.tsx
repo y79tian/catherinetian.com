@@ -1,4 +1,6 @@
 import { useTheme } from 'styled-components';
+
+import { CommonUtils } from '../../utils';
 import { IconButton } from '../iconButton/iconButton';
 import { AppFooterBody } from '../typography/typography';
 
@@ -10,10 +12,8 @@ type FooterProps = {
 export const Footer = ({ showSocialMedias = true }: FooterProps) => {
   const theme = useTheme();
   const currentYear = new Date().getFullYear();
+  const { handleIconClick } = CommonUtils;
   const renderSocialMediaIcons = () => {
-    const handleIconClick = (link: string) => {
-      window.open(link, '_blank', 'noopener,noreferrer');
-    };
     return (
       <SocialMediaWrapper>
         <IconButton
