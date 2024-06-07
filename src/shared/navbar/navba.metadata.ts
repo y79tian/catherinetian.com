@@ -2,7 +2,7 @@
 export const viewsMetadata = [
   { name: 'Home', pathname: '/' },
   { name: 'About', pathname: '/about' },
-  { name: 'Resume', pathname: '/resume' },
+  { name: 'Projects', pathname: '/projects' },
 ] as const;
 
 export const hotkeysInfoMetadata = [
