@@ -43,14 +43,6 @@ const App = () => {
   const onArrowLeftDown = () => {};
   useKeyPress('ArrowLeft', onArrowLeftDown);
 
-  // TODO
-  const onArrowUpDown = () => {};
-  useKeyPress('ArrowUp', onArrowUpDown);
-
-  // TODO
-  const onArrowDownDown = () => {};
-  useKeyPress('ArrowDown', onArrowDownDown);
-
   const onTabDown = () => {
     if (isPlaying) dispatch(switchMusic());
   };

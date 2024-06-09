@@ -1,6 +1,7 @@
 import { PropsWithChildren, useEffect, useRef, useState } from 'react';
 import { useTheme } from 'styled-components';
 
+import useKeyPress from '../../hooks/useKeyPress';
 import { Footer } from '../footer/footer';
 import Navbar from '../navbar/navbar';
 import { ScrollButton } from '../scrollButton/scrollButton';
@@ -53,6 +54,8 @@ export const Page = ({
       top: containerRef.current.scrollHeight,
       behavior: 'smooth',
     });
+  useKeyPress('ArrowUp', scrollToTop);
+  useKeyPress('ArrowDown', scrollToBottom);
   const Icon =
     position === 'after' ? theme.icons['arrowUp'] : theme.icons['arrowDown'];
   const renderScrollButton = () => {
