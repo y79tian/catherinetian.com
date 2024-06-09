@@ -46,6 +46,28 @@ export const StyledImageAnimation = styled(StyledImage)`
   -webkit-box-reflect: below 1px
     linear-gradient(transparent, rgba(0, 0, 0, 0.3));
 `;
+type StyledImageWrapperProps = {
+  $maxHeight: string;
+};
+export const ImageWrapper = styled.div<StyledImageWrapperProps>`
+  position: relative;
+  width: 100%;
+  max-height: ${(props) => props.$maxHeight};
+  overflow: hidden;
+  border-radius: 0.8rem;
+  ${(props) => props.theme.shadows.d3}
+
+  &:hover .overlay {
+    opacity: 1;
+  }
+`;
+
+export const StyledTravelImage = styled.img`
+  border-radius: 0.8rem;
+  height: 100%;
+  width: 100%;
+`;
+
 export const StyledIntro = styled.div`
   width: 100%;
   display: flex;
@@ -80,4 +102,19 @@ export const TravelImageContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   column-gap: 2rem;
+  row-gap: 3rem;
+`;
+
+export const Overlay = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 0 0 0.8rem 0.8rem;
 `;

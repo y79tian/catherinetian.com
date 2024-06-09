@@ -2,17 +2,21 @@ import { useTheme } from 'styled-components';
 
 import { Link } from '../../shared/link/link';
 import { Page } from '../../shared/page/page';
-import { Body2, Subtitle1 } from '../../shared/typography/typography';
+import { Body2, CityName, Subtitle1 } from '../../shared/typography/typography';
+import { CatImages, travelImagesMetadata } from '../../theme/images';
 
 import { introMetadata } from './about.metadata';
 import {
   ContentContainer,
   ImageContainer,
+  ImageWrapper,
+  Overlay,
   PageContainer,
   PageSection,
   StyledImage,
   StyledImageAnimation,
   StyledIntro,
+  StyledTravelImage,
   TravelImageContainer,
 } from './about.styles';
 
@@ -50,19 +54,9 @@ const About = () => {
           <Subtitle1>{introMetadata.catLover}</Subtitle1>
           <Body2>{introMetadata.catLoverIntro}</Body2>
           <ImageContainer>
-            <StyledImageAnimation
-              src={theme.images.youngDB}
-              $maxHeight='14rem'
-            />
-            <StyledImageAnimation src={theme.images.oldDB} $maxHeight='14rem' />
-            <StyledImageAnimation
-              src={theme.images.youngKennie}
-              $maxHeight='14rem'
-            />
-            <StyledImageAnimation
-              src={theme.images.oldKennie}
-              $maxHeight='14rem'
-            />
+            {Object.values(CatImages).map((src, index) => (
+              <StyledImageAnimation key={index} src={src} $maxHeight='14rem' />
+            ))}
           </ImageContainer>
         </ContentContainer>
       </PageSection>
@@ -78,7 +72,21 @@ const About = () => {
             <Subtitle1>{introMetadata.besidesSDE}</Subtitle1>
             <Subtitle1>{introMetadata.travelEnthusiast}</Subtitle1>
             <Body2>{introMetadata.travelQuote}</Body2>
-            <TravelImageContainer></TravelImageContainer>
+            <TravelImageContainer>
+              {travelImagesMetadata.map(
+                ({ src, city, state, country }, index) => (
+                  <ImageWrapper key={index} $maxHeight='14rem'>
+                    <StyledTravelImage key={index} src={src} />
+                    <Overlay className='overlay'>
+                      <CityName>{city}</CityName>
+                      <CityName>
+                        {state}, {country}
+                      </CityName>
+                    </Overlay>
+                  </ImageWrapper>
+                ),
+              )}
+            </TravelImageContainer>
           </ContentContainer>
         </PageSection>
       </PageContainer>
