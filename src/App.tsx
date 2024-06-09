@@ -12,10 +12,8 @@ import useKeyPress from './hooks/useKeyPress';
 import { switchMusic, toggleMusic } from './reducers/music';
 import { switchTheme } from './reducers/theme';
 import { MusicPlayer } from './shared/musicPlayer/musicPlayer';
+import { viewsMetadata } from './shared/navbar/navbar.metadata';
 import { getTheme, GlobalStyles } from './theme';
-import About from './views/about/about';
-import Home from './views/home/home';
-import Project from './views/project/project';
 
 const App = () => {
   const theme = useAppSelector((state) => state.theme.theme);
@@ -24,9 +22,9 @@ const App = () => {
   const renderRoutes = () => (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/projects' element={<Project />} />
+        {viewsMetadata.map(({ name, pathname: path, src }) => (
+          <Route key={name} path={path} element={React.createElement(src)} />
+        ))}
       </Routes>
     </BrowserRouter>
   );
@@ -34,14 +32,6 @@ const App = () => {
     dispatch(switchTheme());
   };
   useKeyPress('t', onKeyTDown);
-
-  // TODO
-  const onArrowRightDown = () => {};
-  useKeyPress('ArrowRight', onArrowRightDown);
-
-  // TODO
-  const onArrowLeftDown = () => {};
-  useKeyPress('ArrowLeft', onArrowLeftDown);
 
   const onTabDown = () => {
     if (isPlaying) dispatch(switchMusic());

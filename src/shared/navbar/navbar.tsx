@@ -21,7 +21,7 @@ import { TooltipWrapper } from '../tooltipWrapper/tooltipWrapper';
 import { SimpleTooltip } from '../tooltipWrapper/tooltipWrapper.styles';
 import { Body1, Key } from '../typography/typography';
 
-import { hotkeysInfoMetadata, viewsMetadata } from './navba.metadata';
+import { hotkeysInfoMetadata, viewsMetadata } from './navbar.metadata';
 import {
   NavBarButtonGroupContainer,
   NavbarContainer,

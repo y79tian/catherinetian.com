@@ -1,9 +1,11 @@
 import { PropsWithChildren, useEffect, useRef, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from 'styled-components';
 
 import useKeyPress from '../../hooks/useKeyPress';
 import { Footer } from '../footer/footer';
 import Navbar from '../navbar/navbar';
+import { pathMap, viewsMetadata } from '../navbar/navbar.metadata';
 import { ScrollButton } from '../scrollButton/scrollButton';
 import { Subtitle1 } from '../typography/typography';
 
@@ -24,6 +26,23 @@ export const Page = ({
   const theme = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState<'before' | 'after' | null>(null);
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const onNavigate = (isPrev: boolean) => {
+    const currentIndex = pathMap.get(pathname);
+    if (currentIndex !== undefined) {
+      let nextIndex;
+      if (isPrev) {
+        nextIndex =
+          (currentIndex - 1 + viewsMetadata.length) % viewsMetadata.length;
+      } else {
+        nextIndex = (currentIndex + 1) % viewsMetadata.length;
+      }
+      const nextPath = viewsMetadata[nextIndex].pathname;
+      navigate(nextPath);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,6 +75,9 @@ export const Page = ({
     });
   useKeyPress('ArrowUp', scrollToTop);
   useKeyPress('ArrowDown', scrollToBottom);
+  useKeyPress('ArrowRight', () => onNavigate(false));
+  useKeyPress('ArrowLeft', () => onNavigate(true));
+
   const Icon =
     position === 'after' ? theme.icons['arrowUp'] : theme.icons['arrowDown'];
   const renderScrollButton = () => {

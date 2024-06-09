@@ -1,9 +1,17 @@
+import About from '../../views/about/about';
+import Home from '../../views/home/home';
+import Project from '../../views/project/project';
+
 /* eslint-disable import/no-unused-modules */
 export const viewsMetadata = [
-  { name: 'Home', pathname: '/' },
-  { name: 'About', pathname: '/about' },
-  { name: 'Projects', pathname: '/projects' },
+  { name: 'Home', pathname: '/', src: Home },
+  { name: 'About', pathname: '/about', src: About },
+  { name: 'Projects', pathname: '/projects', src: Project },
 ] as const;
+
+export const pathMap = new Map<string, number>(
+  viewsMetadata.map((view, index) => [view.pathname, index]),
+);
 
 export const hotkeysInfoMetadata = [
   { key: 'T', action: 'Switch theme' },
