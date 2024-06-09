@@ -3,7 +3,7 @@ import { useTheme } from 'styled-components';
 
 import { IconButton } from '../../shared/iconButton/iconButton';
 import { Page } from '../../shared/page/page';
-import { BodyIconInfo, Title1 } from '../../shared/typography/typography';
+import { BodyIconInfo, NameTitle1 } from '../../shared/typography/typography';
 import { CommonUtils } from '../../utils';
 
 import {
@@ -54,7 +54,7 @@ const Home = () => {
         <source src={theme.videos.homeVideo} type='video/mp4' />
       </BackgroundVideo>
       <OverlayContent>
-        <Title1>Catherine (Yang) Tian</Title1>
+        <NameTitle1>Catherine (Yang) Tian</NameTitle1>
         {renderTags()}
         <InfoIconsWrapper>
           <IconTextWrapper>

@@ -196,13 +196,11 @@ const Navbar = () => {
   };
 
   return (
-    <>
-      <NavbarContainer>
-        {renderHotkeyModal()}
-        {renderNavButtonGroup()}
-        {renderIconGroup()}
-      </NavbarContainer>
-    </>
+    <NavbarContainer>
+      {renderHotkeyModal()}
+      {renderNavButtonGroup()}
+      {renderIconGroup()}
+    </NavbarContainer>
   );
 };
 

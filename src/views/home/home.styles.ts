@@ -51,7 +51,7 @@ export const InfoIconsWrapper = styled.div`
   flex-direction: row;
   max-width: 80%;
   gap: 1rem;
-  background-color: ${(props) => props.theme.colors.InfoIconBackgroundPrimary};
+  background-color: ${(props) => props.theme.colors.infoIconBackgroundPrimary};
   opacity: 0.7;
   align-items: center;
   justify-content: center;

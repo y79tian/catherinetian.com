@@ -4,7 +4,7 @@ import Files, { ThemeFiles } from './files';
 import Fonts, { ThemeFonts } from './fonts';
 import GlobalStyles from './globalStyles';
 import Icons, { ThemeIcons } from './icons';
-import Images, { ThemeImages } from './images';
+import { DarkImages, LightImages, ThemeImages } from './images';
 import Links, { ThemeLinks } from './links';
 import { Musics, MusicsSrcs, ThemeMusics, ThemeMusicSrcs } from './musics';
 import Shadows, { ThemeShadows } from './shadows';
@@ -49,7 +49,7 @@ const getTheme = (themeMode: ThemeMode): Theme => {
         colors: LightColors,
         shadows: Shadows,
         fonts: Fonts,
-        images: Images,
+        images: LightImages,
         videos: LightVideo,
         icons: Icons,
         files: Files,
@@ -65,7 +65,7 @@ const getTheme = (themeMode: ThemeMode): Theme => {
         colors: DarkColors,
         shadows: Shadows,
         fonts: Fonts,
-        images: Images,
+        images: DarkImages,
         videos: DarkVideo,
         icons: Icons,
         files: Files,
@@ -81,7 +81,7 @@ const getTheme = (themeMode: ThemeMode): Theme => {
         colors: LightColors,
         shadows: Shadows,
         fonts: Fonts,
-        images: Images,
+        images: LightImages,
         videos: LightVideo,
         icons: Icons,
         files: Files,
