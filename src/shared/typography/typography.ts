@@ -161,3 +161,9 @@ export const AppFooterBody = styled.p`
   background-color: ${(props) => props.theme.colors.overlay};
   user-select: none;
 `;
+
+export const CityName = styled.span`
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: block;
+`;
