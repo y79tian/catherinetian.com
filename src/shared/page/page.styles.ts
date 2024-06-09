@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 type PageContainerProp = {
-  canScroll: Boolean;
+  $canScroll: Boolean;
 };
 
 export const PageContainer = styled.div<PageContainerProp>`
@@ -10,7 +10,7 @@ export const PageContainer = styled.div<PageContainerProp>`
   left: 0;
   right: 0;
   z-index: ${(props) => props.theme.zIndexes.view};
-  overflow-y: ${(props) => (props.canScroll ? 'auto' : 'hidden')};
+  overflow-y: ${(props) => (props.$canScroll ? 'auto' : 'hidden')};
   display: flex;
   flex-direction: column;
 `;

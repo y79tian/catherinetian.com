@@ -18,7 +18,7 @@ export const Page = ({
   children,
 }: PageProps) => {
   return (
-    <PageContainer canScroll={canScroll}>
+    <PageContainer $canScroll={canScroll}>
       {showNavBar && <Navbar />}
       {children}
       <Footer showSocialMedias={showSocialMedias} />

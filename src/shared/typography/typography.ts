@@ -38,7 +38,36 @@ type Body1Props = {
 export const Body1 = styled.p<Body1Props>`
   font-size: 1.0375rem;
   font-weight: 400;
-  line-height: 1.125rem;
+  line-height: 1.3rem;
+  margin: 0;
+  margin-bottom: ${(props) => (props.$noSpacing ? '0' : '0.5em')};
+
+  color: ${(props) => {
+    if (props.disabled) return props.theme.colors.textTertiary;
+    if (props.$grey) return props.theme.colors.textSecondary;
+    if (props.green) return props.theme.colors.greenDefault;
+    if (props.red) return props.theme.colors.redDefault;
+    if (props.black) return props.theme.colors.blackDefault;
+    if (props.white) return props.theme.colors.whiteDefault;
+    if (props.yellow) return props.theme.colors.yellowDark;
+    return props.theme.colors.textPrimary;
+  }};
+`;
+type Body2Props = {
+  $noSpacing?: boolean;
+  disabled?: boolean;
+  $grey?: boolean;
+  green?: boolean;
+  red?: boolean;
+  black?: boolean;
+  white?: boolean;
+  yellow?: boolean;
+};
+
+export const Body2 = styled.p<Body2Props>`
+  font-size: 1.1375rem;
+  font-weight: 400;
+  line-height: 1.5rem;
   margin: 0;
   margin-bottom: ${(props) => (props.$noSpacing ? '0' : '0.5em')};
 
@@ -93,12 +122,12 @@ export const Key = styled(Body1)<KeyProps>`
     `}
 `;
 
-export const Title1 = styled.h1`
+export const NameTitle1 = styled.h1`
   font-size: 4rem;
   font-weight: 600;
   line-height: 3.5rem;
   margin: 0;
-
+  user-select: none;
   color: ${(props) => props.theme.colors.textPrimary};
 `;
 

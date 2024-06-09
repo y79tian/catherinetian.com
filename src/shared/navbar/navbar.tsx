@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { To, useLocation, useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import useKeyPress from '../../hooks/useKeyPress';
@@ -20,7 +21,7 @@ import { TooltipWrapper } from '../tooltipWrapper/tooltipWrapper';
 import { SimpleTooltip } from '../tooltipWrapper/tooltipWrapper.styles';
 import { Body1, Key } from '../typography/typography';
 
-import { hotkeysInfoMetadata } from './navba.metadata';
+import { hotkeysInfoMetadata, viewsMetadata } from './navba.metadata';
 import {
   NavBarButtonGroupContainer,
   NavbarContainer,
@@ -30,6 +31,8 @@ import {
 
 const Navbar = () => {
   const [showHotkeyModal, setShowHotkeyModal] = useState(false);
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
   const mode = useAppSelector((state) => state.theme.theme);
   const { isPlaying, musicIndex, playlist } = useAppSelector(
     (state) => state.music,
@@ -159,13 +162,26 @@ const Navbar = () => {
       </Modal>
     );
   };
-  const renderNavButtonGroup = () => (
-    <NavBarButtonGroupContainer>
-      <NavButton onClick={fakeFunc}>Home</NavButton>
-      <NavButton onClick={fakeFunc}>About</NavButton>
-      <NavButton onClick={fakeFunc}>Resume</NavButton>
-    </NavBarButtonGroupContainer>
-  );
+  const renderNavButtonGroup = () => {
+    const onNavigate = (link: To) => {
+      navigate(link);
+    };
+    return (
+      <NavBarButtonGroupContainer>
+        {viewsMetadata.map((view) => {
+          return (
+            <NavButton
+              key={view.name}
+              active={view.pathname === pathname}
+              onClick={() => onNavigate(view.pathname)}
+            >
+              {view.name}
+            </NavButton>
+          );
+        })}
+      </NavBarButtonGroupContainer>
+    );
+  };
 
   const renderIconGroup = () => {
     return (
@@ -180,13 +196,11 @@ const Navbar = () => {
   };
 
   return (
-    <>
-      <NavbarContainer>
-        {renderHotkeyModal()}
-        {renderNavButtonGroup()}
-        {renderIconGroup()}
-      </NavbarContainer>
-    </>
+    <NavbarContainer>
+      {renderHotkeyModal()}
+      {renderNavButtonGroup()}
+      {renderIconGroup()}
+    </NavbarContainer>
   );
 };
 

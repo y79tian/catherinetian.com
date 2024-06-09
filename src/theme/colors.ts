@@ -10,7 +10,9 @@ export type ThemeColors = {
   elevatedBackgroundPrimary: string;
   elevatedBackgroundSecondary: string;
   elevatedBackgroundTertiary: string;
-  InfoIconBackgroundPrimary: string;
+  infoIconBackgroundPrimary: string;
+  cardBackgroundPrimary: string;
+  cardBackgroundSecondary: string;
   textPrimary: string;
   textSecondary: string;
   textTertiary: string;
@@ -70,7 +72,11 @@ export const LightColors: ThemeColors = {
   elevatedBackgroundTertiary: '#EFEFEF', // disabled
 
   // InfoIcon: the social media icons like LinkedIn, Github
-  InfoIconBackgroundPrimary: '#7F7F7F',
+  infoIconBackgroundPrimary: '#7F7F7F',
+
+  // Card: the card background in pages like About
+  cardBackgroundPrimary: '#ffffff',
+  cardBackgroundSecondary: '#E4E4E4',
 
   // use for text
   textPrimary: '#000000', // regular
@@ -140,7 +146,11 @@ export const DarkColors: ThemeColors = {
   elevatedBackgroundTertiary: '#323232',
 
   // InfoIcon: the social media icons like LinkedIn, Github
-  InfoIconBackgroundPrimary: '#FFFFFF',
+  infoIconBackgroundPrimary: '#FFFFFF',
+
+  // Card: the card background in pages like About
+  cardBackgroundPrimary: '#848484',
+  cardBackgroundSecondary: '#272727',
 
   textPrimary: '#E4E4E4',
   textSecondary: '#848484',

@@ -13,7 +13,9 @@ import { switchMusic, toggleMusic } from './reducers/music';
 import { switchTheme } from './reducers/theme';
 import { MusicPlayer } from './shared/musicPlayer/musicPlayer';
 import { getTheme, GlobalStyles } from './theme';
+import About from './views/about/about';
 import Home from './views/home/home';
+import Project from './views/project/project';
 
 const App = () => {
   const theme = useAppSelector((state) => state.theme.theme);
@@ -23,6 +25,8 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/projects' element={<Project />} />
       </Routes>
     </BrowserRouter>
   );
