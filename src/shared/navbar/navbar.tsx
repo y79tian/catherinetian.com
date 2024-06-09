@@ -1,4 +1,11 @@
-import React, { useState } from 'react';
+import {
+  MotionValue,
+  useMotionValue,
+  useMotionValueEvent,
+  useSpring,
+  useTransform,
+} from 'framer-motion';
+import React, { useEffect, useState } from 'react';
 import { To, useLocation, useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
@@ -27,9 +34,14 @@ import {
   NavbarContainer,
   NavBarIconGroupContainer,
   NavBarMusicControlContainer,
+  ProgressIndicator,
 } from './navbar.styles';
 
-const Navbar = () => {
+type NavbarProps = {
+  canScroll: boolean;
+  yProgress: MotionValue<number>;
+};
+const Navbar = ({ canScroll, yProgress }: NavbarProps) => {
   const [showHotkeyModal, setShowHotkeyModal] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -38,6 +50,26 @@ const Navbar = () => {
     (state) => state.music,
   );
   const dispatch = useAppDispatch();
+  const yValue = useMotionValue(0);
+  const smoothYValue = useSpring(yValue, { stiffness: 80, damping: 20 });
+  const yTransform = useTransform(smoothYValue, (value) => value);
+  useMotionValueEvent(yProgress, 'change', () => {
+    if (yProgress.getVelocity() > 0) {
+      yValue.set(-60);
+    } else {
+      yValue.set(0);
+    }
+  });
+
+  useEffect(() => {
+    const onResize = () => {
+      yValue.set(0);
+    };
+
+    window.addEventListener('resize', onResize);
+
+    return () => window.removeEventListener('resize', onResize);
+  }, [yValue]);
 
   const onKeyIDown = () => {
     setShowHotkeyModal(!showHotkeyModal);
@@ -196,11 +228,16 @@ const Navbar = () => {
   };
 
   return (
-    <NavbarContainer>
-      {renderHotkeyModal()}
-      {renderNavButtonGroup()}
-      {renderIconGroup()}
-    </NavbarContainer>
+    <>
+      <NavbarContainer style={{ y: canScroll ? yTransform : 0 }}>
+        {renderHotkeyModal()}
+        {renderNavButtonGroup()}
+        {renderIconGroup()}
+      </NavbarContainer>
+      {canScroll && (
+        <ProgressIndicator style={{ y: yTransform, scaleX: yProgress }} />
+      )}
+    </>
   );
 };
 

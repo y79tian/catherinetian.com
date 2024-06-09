@@ -1,9 +1,10 @@
+import { motion } from 'framer-motion';
 import { styled } from 'styled-components';
 
 import { StyledIconButton } from '../iconButton/iconButton.styles';
 import { StyledButton } from '../navButton/navButton.styles';
 
-export const NavbarContainer = styled.nav`
+export const NavbarContainer = styled(motion.nav)`
   width: 100vw;
   height: 60px;
   background-color: ${(props) => props.theme.colors.systemBackgroundPrimary};
@@ -47,4 +48,15 @@ export const NavBarMusicControlContainer = styled.div`
   ${StyledIconButton} {
     padding: 0 0.8rem;
   }
+`;
+
+export const ProgressIndicator = styled(motion.div)`
+  width: 100%;
+  height: 100%;
+  background-color: ${(props) => props.theme.colors.indigoLight};
+  transform-origin: center;
+  z-index: ${(props) => props.theme.zIndexes.navBar};
+  height: 0.15rem;
+  position: fixed;
+  top: 60px;
 `;
