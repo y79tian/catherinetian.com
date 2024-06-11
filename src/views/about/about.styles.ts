@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 
 import { backgroundColorTransitionStyle } from '../../shared/styles/transitions';
+import Breakpoints from '../../theme/breakpoints';
 type PageSectionProps = {
   $backgroundColor: string;
 };
@@ -28,9 +29,13 @@ type ContentContainerProps = {
   $isColumn: boolean;
 };
 export const ContentContainer = styled.div<ContentContainerProps>`
-  width: 70%;
+  width: 75%;
   display: flex;
   flex-direction: ${(props) => (props.$isColumn ? 'column' : 'row')};
+
+  @media (max-width: ${Breakpoints.largeWidth}) {
+    flex-direction: column;
+  }
   gap: 2rem;
 `;
 type StyledImageProps = {
