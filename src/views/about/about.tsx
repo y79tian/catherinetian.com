@@ -27,7 +27,7 @@ const About = () => {
     return (
       <PageSection $backgroundColor={theme.colors.cardBackgroundPrimary}>
         <ContentContainer $isColumn={false}>
-          <StyledImage src={theme.images.profile} $maxHeight='25rem' />
+          <StyledImage src={theme.images.profile} $maxWidth='24rem' />
           <StyledIntro>
             <Subtitle1>{introMetadata.introTitle}</Subtitle1>
             <Body2>{introMetadata.introBody1}</Body2>
@@ -55,7 +55,7 @@ const About = () => {
           <Body2>{introMetadata.catLoverIntro}</Body2>
           <ImageContainer>
             {Object.values(CatImages).map((src, index) => (
-              <StyledImageAnimation key={index} src={src} $maxHeight='14rem' />
+              <StyledImageAnimation key={index} src={src} $maxWidth='14rem' />
             ))}
           </ImageContainer>
         </ContentContainer>
@@ -73,7 +73,7 @@ const About = () => {
           <TravelImageContainer>
             {travelImagesMetadata.map(
               ({ src, city, state, country }, index) => (
-                <ImageWrapper key={index} $maxHeight='14rem'>
+                <ImageWrapper key={index} $maxWidth='14rem'>
                   <StyledTravelImage key={index} src={src} />
                   <Overlay className='overlay'>
                     <CityName>{city}</CityName>
