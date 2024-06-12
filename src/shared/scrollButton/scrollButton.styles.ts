@@ -1,5 +1,7 @@
 import { styled } from 'styled-components';
 
+import Breakpoints from '../../theme/breakpoints';
+
 export const StyledScrollButton = styled.div`
   cursor: pointer;
   display: flex;
@@ -14,4 +16,8 @@ export const StyledScrollButton = styled.div`
   right: 5vw;
   ${(props) => props.theme.shadows.d3};
   z-index: 200;
+  @media (max-width: ${Breakpoints.smallWidth}) {
+    bottom: 5rem;
+    padding: 0.5rem 1rem;
+  }
 `;

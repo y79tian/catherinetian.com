@@ -1,13 +1,12 @@
 import { useScroll, useSpring } from 'framer-motion';
 import { PropsWithChildren, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from 'styled-components';
 
+import { useOnNavigate } from '../../hooks';
 import useKeyPress from '../../hooks/useKeyPress';
 import useScrollPosition from '../../hooks/useScrollPosition';
 import { Footer } from '../footer/footer';
 import Navbar from '../navbar/navbar';
-import { pathMap, viewsMetadata } from '../navbar/navbar.metadata';
 import { ScrollButton } from '../scrollButton/scrollButton';
 import { Subtitle1 } from '../typography/typography';
 
@@ -27,8 +26,7 @@ export const Page = ({
 }: PageProps) => {
   const theme = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
+  const onNavigate = useOnNavigate();
   const { scrollYProgress } = useScroll({
     container: containerRef,
   });
@@ -37,21 +35,6 @@ export const Page = ({
     damping: 30,
     restDelta: 0.001,
   });
-
-  const onNavigate = (isPrev: boolean) => {
-    const currentIndex = pathMap.get(pathname);
-    if (currentIndex !== undefined) {
-      let nextIndex;
-      if (isPrev) {
-        nextIndex =
-          (currentIndex - 1 + viewsMetadata.length) % viewsMetadata.length;
-      } else {
-        nextIndex = (currentIndex + 1) % viewsMetadata.length;
-      }
-      const nextPath = viewsMetadata[nextIndex].pathname;
-      navigate(nextPath);
-    }
-  };
 
   const position = useScrollPosition(containerRef);
   const scrollToTop = () =>

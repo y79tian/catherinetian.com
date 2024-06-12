@@ -7,6 +7,13 @@ export const tagData = [
   'Machine Learning',
 ];
 
+export const tagDataOnPhone = [
+  'React',
+  'Cloud',
+  'Full Stack',
+  'Machine Learning',
+];
+
 export const iconMetadata = [
   {
     icon: 'linkedin',

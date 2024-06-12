@@ -35,29 +35,43 @@ export const ContentContainer = styled.div<ContentContainerProps>`
 
   @media (max-width: ${Breakpoints.largeWidth}) {
     flex-direction: column;
+    width: 80%;
   }
   gap: 2rem;
 `;
 type StyledImageProps = {
-  $maxHeight: string;
+  $maxWidth: string;
 };
 export const StyledImage = styled.img<StyledImageProps>`
-  max-height: ${(props) => props.$maxHeight};
+  max-width: ${(props) => props.$maxWidth};
+  aspect-ratio: 5 / 4;
   border-radius: 0.8rem;
+  @media (max-width: ${Breakpoints.mediumWidth}) {
+    max-width: initial;
+    width: 100%;
+  }
   ${(props) => props.theme.shadows.d3}
 `;
 export const StyledImageAnimation = styled(StyledImage)`
   transition: 0.5s;
   -webkit-box-reflect: below 1px
     linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+  @media (max-width: ${Breakpoints.mediumWidth}) {
+    -webkit-box-reflect: initial;
+  }
 `;
 type StyledImageWrapperProps = {
-  $maxHeight: string;
+  $maxWidth: string;
 };
 export const ImageWrapper = styled.div<StyledImageWrapperProps>`
   position: relative;
-  width: 100%;
-  max-height: ${(props) => props.$maxHeight};
+  /* width: 100%; */
+  max-width: ${(props) => props.$maxWidth};
+  @media (max-width: ${Breakpoints.mediumWidth}) {
+    max-width: initial;
+    width: 100%;
+  }
+  aspect-ratio: 5 / 4;
   overflow: hidden;
   border-radius: 0.8rem;
   ${(props) => props.theme.shadows.d3}
@@ -88,6 +102,10 @@ export const ImageContainer = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   column-gap: 2rem;
   row-gap: 13rem;
+  @media (max-width: ${Breakpoints.mediumWidth}) {
+    row-gap: 4rem;
+    padding-bottom: 0rem;
+  }
   transform-style: preserve-3d;
   &:hover ${StyledImageAnimation}:not(:hover) {
     margin: 0 -20px;
@@ -98,7 +116,7 @@ export const ImageContainer = styled.div`
   &:hover ${StyledImageAnimation}:hover ~ ${StyledImageAnimation}:not(:hover) {
     transform: perspective(600px) rotateY(-45deg) scale(0.95);
   }
-  padding-bottom: 15rem;
+  padding-bottom: 12rem;
 `;
 
 export const TravelImageContainer = styled.div`

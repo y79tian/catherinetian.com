@@ -1,5 +1,7 @@
 import { css, styled } from 'styled-components';
 
+import Breakpoints from '../../theme/breakpoints';
+
 type ButtonTextProp = {
   $disabled?: Boolean;
 };
@@ -129,6 +131,10 @@ export const NameTitle1 = styled.h1`
   margin: 0;
   user-select: none;
   color: ${(props) => props.theme.colors.textPrimary};
+  @media (max-width: ${Breakpoints.mediumWidth}) {
+    font-size: 3rem;
+    font-weight: 600;
+  }
 `;
 
 type Subtitle1Props = {

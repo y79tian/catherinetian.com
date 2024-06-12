@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 
 import { backgroundColorTransitionStyle } from '../../shared/styles/transitions';
+import Breakpoints from '../../theme/breakpoints';
 
 export const BackgroundVideo = styled.video`
   position: absolute;
@@ -23,6 +24,9 @@ export const OverlayContent = styled.div`
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  @media (max-width: ${Breakpoints.smallWidth}) {
+    gap: 1rem;
+  }
   flex-wrap: wrap;
 `;
 
@@ -31,6 +35,20 @@ export const TagsWrapper = styled.div`
   flex-direction: row;
   max-width: 80%;
   gap: 1.5rem;
+  @media (max-width: ${Breakpoints.mediumWidth}) {
+    display: none;
+  }
+`;
+export const TagsWrapperPhone = styled.div`
+  display: none;
+  @media (max-width: ${Breakpoints.mediumWidth}) {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  @media (max-width: ${Breakpoints.smallWidth}) {
+    display: none;
+  }
 `;
 
 export const Tag = styled.div`
@@ -43,6 +61,7 @@ export const Tag = styled.div`
   border-radius: 0.3rem;
   opacity: 0.8;
   user-select: none;
+  width: fit-content;
   ${backgroundColorTransitionStyle}
 `;
 
@@ -59,6 +78,12 @@ export const InfoIconsWrapper = styled.div`
   margin-top: 2rem;
   border-radius: 0.5rem;
   ${backgroundColorTransitionStyle}
+  @media (max-width: ${Breakpoints.smallWidth}) {
+    flex-direction: column;
+    max-width: 100%;
+    width: 80%;
+    gap: 0;
+  }
 `;
 export const IconTextWrapper = styled.div`
   display: flex;

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { styled } from 'styled-components';
 
+import Breakpoints from '../../theme/breakpoints';
 import { StyledIconButton } from '../iconButton/iconButton.styles';
 import { StyledButton } from '../navButton/navButton.styles';
 
@@ -22,12 +23,18 @@ export const NavbarContainer = styled(motion.nav)`
   ${StyledButton} {
     margin: 0 1vw;
   }
+  @media (max-width: ${Breakpoints.smallWidth}) {
+    justify-content: center;
+  }
 `;
 
 export const NavBarButtonGroupContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: ${Breakpoints.smallWidth}) {
+    width: 100%;
+  }
 `;
 
 export const NavBarIconGroupContainer = styled.div`
@@ -35,6 +42,30 @@ export const NavBarIconGroupContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 2vw;
+  @media (max-width: ${Breakpoints.smallWidth}) {
+    display: none;
+  }
+`;
+export const NavBarIconGroupContainerOnPhone = styled(motion.div)`
+  display: none;
+  @media (max-width: ${Breakpoints.smallWidth}) {
+    width: 90vw;
+    height: 50px;
+    z-index: ${(props) => props.theme.zIndexes.navBar};
+    /* transform: translateX(-50%); */
+    left: 50%;
+    bottom: 10px;
+    position: fixed;
+    background-color: ${(props) => props.theme.colors.systemBackgroundPrimary};
+    transition: background-color 0.5s ease;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 3rem;
+  }
 `;
 
 export const NavBarMusicControlContainer = styled.div`
