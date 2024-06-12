@@ -8,7 +8,7 @@ import {
 import React, { useEffect, useState } from 'react';
 import { To, useLocation, useNavigate } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector, useOnNavigate } from '../../hooks';
 import useKeyPress from '../../hooks/useKeyPress';
 import { switchMusic, toggleMusic } from '../../reducers/music';
 import { switchTheme } from '../../reducers/theme';
@@ -33,6 +33,7 @@ import {
   NavBarButtonGroupContainer,
   NavbarContainer,
   NavBarIconGroupContainer,
+  NavBarIconGroupContainerOnPhone,
   NavBarMusicControlContainer,
   ProgressIndicator,
 } from './navbar.styles';
@@ -45,6 +46,7 @@ const Navbar = ({ canScroll, yProgress }: NavbarProps) => {
   const [showHotkeyModal, setShowHotkeyModal] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const onNavigate = useOnNavigate();
   const mode = useAppSelector((state) => state.theme.theme);
   const { isPlaying, musicIndex, playlist } = useAppSelector(
     (state) => state.music,
@@ -53,6 +55,7 @@ const Navbar = ({ canScroll, yProgress }: NavbarProps) => {
   const yValue = useMotionValue(0);
   const smoothYValue = useSpring(yValue, { stiffness: 80, damping: 20 });
   const yTransform = useTransform(smoothYValue, (value) => value);
+  const yTransformBottom = useTransform(smoothYValue, (value) => -value);
   useMotionValueEvent(yProgress, 'change', () => {
     if (yProgress.getVelocity() > 0) {
       yValue.set(-60);
@@ -172,6 +175,14 @@ const Navbar = ({ canScroll, yProgress }: NavbarProps) => {
     );
   };
 
+  const renderPrevViewControl = () => {
+    return <IconButton icon='leftArrow' onClick={() => onNavigate(true)} />;
+  };
+
+  const renderNextViewControl = () => {
+    return <IconButton icon='rightArrow' onClick={() => onNavigate(false)} />;
+  };
+
   const closeModal = () => {
     setShowHotkeyModal(false);
   };
@@ -195,7 +206,7 @@ const Navbar = ({ canScroll, yProgress }: NavbarProps) => {
     );
   };
   const renderNavButtonGroup = () => {
-    const onNavigate = (link: To) => {
+    const navigateTo = (link: To) => {
       navigate(link);
     };
     return (
@@ -205,7 +216,7 @@ const Navbar = ({ canScroll, yProgress }: NavbarProps) => {
             <NavButton
               key={view.name}
               active={view.pathname === pathname}
-              onClick={() => onNavigate(view.pathname)}
+              onClick={() => navigateTo(view.pathname)}
             >
               {view.name}
             </NavButton>
@@ -227,6 +238,20 @@ const Navbar = ({ canScroll, yProgress }: NavbarProps) => {
     );
   };
 
+  const renderIconGroupOnPhone = () => {
+    return (
+      <NavBarIconGroupContainerOnPhone
+        style={{ y: canScroll ? yTransformBottom : 0, x: '-50%' }}
+      >
+        {renderPrevViewControl()}
+        {renderPDFControl()}
+        {renderThemeControl()}
+        {renderMusicControl()}
+        {renderNextViewControl()}
+      </NavBarIconGroupContainerOnPhone>
+    );
+  };
+
   return (
     <>
       <NavbarContainer style={{ y: canScroll ? yTransform : 0 }}>
@@ -234,6 +259,7 @@ const Navbar = ({ canScroll, yProgress }: NavbarProps) => {
         {renderNavButtonGroup()}
         {renderIconGroup()}
       </NavbarContainer>
+      {renderIconGroupOnPhone()}
       {canScroll && (
         <ProgressIndicator style={{ y: yTransform, scaleX: yProgress }} />
       )}
