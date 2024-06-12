@@ -6,7 +6,7 @@ import { Page } from '../../shared/page/page';
 import { BodyIconInfo, NameTitle1 } from '../../shared/typography/typography';
 import { CommonUtils } from '../../utils';
 
-import { iconMetadata, tagData } from './home.metadata';
+import { iconMetadata, tagData, tagDataOnPhone } from './home.metadata';
 import {
   BackgroundVideo,
   IconTextWrapper,
@@ -14,6 +14,7 @@ import {
   OverlayContent,
   Tag,
   TagsWrapper,
+  TagsWrapperPhone,
 } from './home.styles';
 
 const Home = () => {
@@ -46,6 +47,15 @@ const Home = () => {
       </TagsWrapper>
     );
   };
+  const renderTagsOnPhone = () => {
+    return (
+      <TagsWrapperPhone>
+        {tagDataOnPhone.map((item) => (
+          <Tag key={item}>{item}</Tag>
+        ))}
+      </TagsWrapperPhone>
+    );
+  };
   return (
     <Page showSocialMedias={false} canScroll={false}>
       <BackgroundVideo ref={ref} autoPlay loop muted>
@@ -54,6 +64,7 @@ const Home = () => {
       <OverlayContent>
         <NameTitle1>Catherine (Yang) Tian</NameTitle1>
         {renderTags()}
+        {renderTagsOnPhone()}
         <InfoIconsWrapper>
           {iconMetadata.map((item) => (
             <IconTextWrapper key={item.label}>
