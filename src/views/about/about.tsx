@@ -27,7 +27,7 @@ const About = () => {
     return (
       <PageSection $backgroundColor={theme.colors.cardBackgroundPrimary}>
         <ContentContainer $isColumn={false}>
-          <StyledImage src={theme.images.profile} $maxWidth='24rem' />
+          <StyledImage src={theme.images.profile} $maxWidth='25rem' />
           <StyledIntro>
             <Subtitle1>{introMetadata.introTitle}</Subtitle1>
             <Body2>{introMetadata.introBody1}</Body2>
