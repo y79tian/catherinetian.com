@@ -16,10 +16,10 @@ import quebec from './images/quebec.jpg';
 import rocket from './images/rocket.jpg';
 import santaMonica from './images/santaMonica.jpg';
 import satoshi from './images/satoshi.jpg';
+import twitter from './images/twitter.jpg';
 import washington from './images/washington.jpg';
 import youngDB from './images/youngDb.jpg';
 import youngKennie from './images/youngKenny.jpg';
-import twitter from './images/twitter.jpg';
 
 export const travelImagesMetadata = [
   { src: alaska, city: 'Alaska', state: 'AK', country: 'USA' },
