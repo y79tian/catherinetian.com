@@ -141,6 +141,7 @@ type Subtitle1Props = {
   $grey?: boolean;
   green?: boolean;
   red?: boolean;
+  indigo?: boolean;
 };
 
 export const Subtitle1 = styled.h6<Subtitle1Props>`
@@ -152,6 +153,62 @@ export const Subtitle1 = styled.h6<Subtitle1Props>`
     if (props.$grey) return props.theme.colors.textSecondary;
     if (props.red) return props.theme.colors.redDefault;
     if (props.green) return props.theme.colors.greenDefault;
+    if (props.indigo) return props.theme.colors.indigoDark;
+    return props.theme.colors.textPrimary;
+  }};
+`;
+
+export const Subtitle2 = styled.h6<Subtitle1Props>`
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.9rem;
+  margin: 0;
+  color: ${(props) => {
+    if (props.$grey) return props.theme.colors.textSecondary;
+    if (props.red) return props.theme.colors.redDefault;
+    if (props.green) return props.theme.colors.greenDefault;
+    if (props.indigo) return props.theme.colors.indigoLight;
+    return props.theme.colors.textPrimary;
+  }};
+`;
+
+export const Subtitle3 = styled.h6<Subtitle1Props>`
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.9rem;
+  margin: 0;
+  color: ${(props) => {
+    if (props.$grey) return props.theme.colors.textSecondary;
+    if (props.red) return props.theme.colors.redDefault;
+    if (props.green) return props.theme.colors.greenDefault;
+    if (props.indigo) return props.theme.colors.indigoLight;
+    return props.theme.colors.textPrimary;
+  }};
+`;
+
+export const Subtitle4 = styled.h6<Subtitle1Props>`
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.9rem;
+  margin: 0;
+  color: ${(props) => {
+    if (props.$grey) return props.theme.colors.textSecondary;
+    if (props.red) return props.theme.colors.redDefault;
+    if (props.green) return props.theme.colors.greenDefault;
+    if (props.indigo) return props.theme.colors.indigoLight;
+    return props.theme.colors.textPrimary;
+  }};
+`;
+export const Subtitle5 = styled.h6<Subtitle1Props>`
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.9rem;
+  margin: 0;
+  color: ${(props) => {
+    if (props.$grey) return props.theme.colors.textSecondary;
+    if (props.red) return props.theme.colors.redDefault;
+    if (props.green) return props.theme.colors.greenDefault;
+    if (props.indigo) return props.theme.colors.indigoLight;
     return props.theme.colors.textPrimary;
   }};
 `;
