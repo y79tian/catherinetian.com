@@ -20,7 +20,7 @@ function usePageTracking() {
   useEffect(() => {
     const handlePageView = (url: string) => {
       if (window.gtag) {
-        window.gtag('config', 'G-E8DZK1GFC4', {
+        window.gtag('config', 'G-DQE6PWWG6C', {
           page_path: url,
         });
       }
