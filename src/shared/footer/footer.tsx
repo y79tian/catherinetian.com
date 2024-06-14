@@ -40,7 +40,7 @@ export const Footer = ({ showSocialMedias = true }: FooterProps) => {
   return (
     <FooterContainer>
       <AppFooterBody>
-        © {currentYear} Catherine (Yang) Tian. All rights reserved.
+        © {currentYear} Developed By Catherine Tian. All rights reserved.
       </AppFooterBody>
       {showSocialMedias && renderSocialMediaIcons()}
     </FooterContainer>
