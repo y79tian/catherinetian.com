@@ -1,5 +1,6 @@
 import { Tooltip } from 'react-tooltip';
 import { styled } from 'styled-components';
+
 import Breakpoints from '../../theme/breakpoints';
 
 export const StyledTooltipWrapper = styled(Tooltip)`
