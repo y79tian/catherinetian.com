@@ -11,9 +11,9 @@ const Musics = {
 } as const;
 
 const MusicsSrcs = [
+  { src: aeom, name: 'All Eyes On Me' },
   { src: barbie, name: 'Dance The Night' },
   { src: flower, name: 'Flower' },
-  { src: aeom, name: 'All Eyes On Me' },
   { src: jay, name: '四面楚歌' },
 ] as const;
 
