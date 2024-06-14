@@ -22,6 +22,7 @@ export const PageSection = styled.div<PageSectionProps>`
   background-color: ${(props) => props.$backgroundColor};
   padding-top: 5rem;
   padding-bottom: 5rem;
+  user-select: none;
   ${backgroundColorTransitionStyle}
 `;
 
