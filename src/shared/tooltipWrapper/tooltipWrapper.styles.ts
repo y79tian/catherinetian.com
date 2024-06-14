@@ -1,5 +1,6 @@
 import { Tooltip } from 'react-tooltip';
 import { styled } from 'styled-components';
+import Breakpoints from '../../theme/breakpoints';
 
 export const StyledTooltipWrapper = styled(Tooltip)`
   padding: 0.5rem 0.75rem !important;
@@ -12,6 +13,9 @@ export const StyledTooltipWrapper = styled(Tooltip)`
   box-shadow:
     0 0 2px rgba(0, 0, 0, 0.04),
     0 2px 4px rgba(0, 0, 0, 0.02) !important;
+  @media (max-width: ${Breakpoints.smallWidth}) {
+    display: none;
+  }
 `;
 export const Container = styled.div``;
 

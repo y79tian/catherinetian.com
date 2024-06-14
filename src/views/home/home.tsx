@@ -58,7 +58,7 @@ const Home = () => {
   };
   return (
     <Page showSocialMedias={false} canScroll={false}>
-      <BackgroundVideo ref={ref} autoPlay loop muted>
+      <BackgroundVideo ref={ref} autoPlay loop muted playsInline>
         <source src={theme.videos.homeVideo} type='video/mp4' />
       </BackgroundVideo>
       <OverlayContent>
