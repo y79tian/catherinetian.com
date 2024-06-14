@@ -37,6 +37,7 @@ const App = () => {
   const theme = useAppSelector((state) => state.theme.theme);
   const { isPlaying } = useAppSelector((state) => state.music);
   const dispatch = useAppDispatch();
+
   const renderRoutes = () => (
     <BrowserRouter>
       <PageTracking />

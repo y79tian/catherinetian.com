@@ -1,3 +1,4 @@
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import {
   MotionValue,
   useMotionValue,
@@ -8,6 +9,7 @@ import {
 import React, { useEffect, useState } from 'react';
 import { To, useLocation, useNavigate } from 'react-router-dom';
 
+import { allowedEmail, auth } from '../../firebase';
 import { useAppDispatch, useAppSelector, useOnNavigate } from '../../hooks';
 import useKeyPress from '../../hooks/useKeyPress';
 import { switchMusic, toggleMusic } from '../../reducers/music';
@@ -79,7 +81,22 @@ const Navbar = ({ canScroll, yProgress }: NavbarProps) => {
   };
   useKeyPress('i', onKeyIDown);
 
-  const fakeFunc = () => {};
+  const handleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+
+      if (user.email !== allowedEmail) {
+        alert('Access denied. This account is not allowed.');
+        await auth.signOut();
+      } else {
+        alert('Login successful');
+      }
+    } catch (error) {
+      alert('error');
+    }
+  };
   const renderInfoControl = () => {
     const renderInfoTooltip = () => {
       return (
@@ -170,7 +187,7 @@ const Navbar = ({ canScroll, yProgress }: NavbarProps) => {
     );
     return (
       <TooltipWrapper component={renderUserTooltip()}>
-        <IconButton icon='user' onClick={fakeFunc} />
+        <IconButton icon='user' onClick={handleLogin} />
       </TooltipWrapper>
     );
   };
