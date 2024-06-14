@@ -49,7 +49,7 @@ const Project = () => {
         <TextSection>
           {metadata.basicInfo.map((item) => (
             <TextWrapper key={item.label}>
-              <Subtitle4 indigo>{item.label}: </Subtitle4>
+              <Subtitle4 $indigo>{item.label}: </Subtitle4>
               <Subtitle5>{item.value}</Subtitle5>
             </TextWrapper>
           ))}
